@@ -59,7 +59,6 @@ export default async function UserDocsLayout({ children }) {
         footer={footer}
         nextThemes={{
           attribute: 'class',
-          defaultTheme: 'light',
           disableTransitionOnChange: true
         }}
       >

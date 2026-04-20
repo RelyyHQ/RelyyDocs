@@ -61,7 +61,7 @@ export default async function RelyyCastDocsLayout({ children }) {
         footer={footer}
         nextThemes={{
           attribute: 'class',
-          defaultTheme: 'light',
+          defaultTheme: 'system',
           disableTransitionOnChange: true
         }}
       >

@@ -59,7 +59,7 @@ export default async function DeveloperDocsLayout({ children }) {
         footer={footer}
         nextThemes={{
           attribute: 'class',
-          defaultTheme: 'light',
+          defaultTheme: 'system',
           disableTransitionOnChange: true
         }}
       >
