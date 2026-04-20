@@ -1,11 +1,16 @@
-import { Layout } from 'nextra-theme-docs'
 import { Banner } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import { DOCS_REPOSITORY_BASE } from '../../docs-config'
 import { RelyyDocsFooter, RelyyDocsNavbar } from '../../docs-shell'
 
 
-export const dynamic = 'force-dynamic'
+
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
+const Layout = dynamic(() => import('nextra-theme-docs').then(mod => mod.Layout), {
+  ssr: true
+})
 const banner = <Banner storageKey="relyycast-docs-banner" dismissible={false}>RelyyCast Documentation</Banner>
 
 const navbar = <RelyyDocsNavbar sectionLabel="RelyyCast Docs" />
@@ -66,7 +71,9 @@ export default async function RelyyCastDocsLayout({ children }) {
           disableTransitionOnChange: true
         }}
       >
+        <Suspense>
         {children}
+        </Suspense>
       </Layout>
     </div>
   )

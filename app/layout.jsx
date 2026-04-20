@@ -3,6 +3,7 @@ import './globals.css'
 import 'nextra-theme-docs/style.css'
 import Script from 'next/script'
 import { Suspense } from 'react'
+import { AppThemeProvider } from './theme-provider'
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.relyy.app'
@@ -98,9 +99,11 @@ export default function RootLayout({ children }) {
             </noscript>
           </>
         ) : null}
-        <Suspense>
-        {children}
-        </Suspense>
+        <AppThemeProvider>
+          <Suspense>
+          {children}
+          </Suspense>
+        </AppThemeProvider>
       </body>
     </html>
   )

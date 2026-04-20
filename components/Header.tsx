@@ -15,7 +15,6 @@ import Link from "next/link";
 import { menuGroups, primaryLinks } from "../app/ROUTES";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { Button } from "./ui/button";
-import { NavigationMenu, NavigationMenuList,} from "@radix-ui/react-navigation-menu";
 import { Badge } from "./ui/badge";
 import { useTheme } from "nextra-theme-docs";
 
@@ -44,9 +43,9 @@ function HeaderLink({
 
   if (href.startsWith("mailto:")) {
     return (
-      <a href={href} className={className} onClick={handleClick}>
+      <Link href={href} className={className} onClick={handleClick}>
         {children}
-      </a>
+      </Link>
     );
   }
 
@@ -90,86 +89,7 @@ const Navigation = () => {
           </Link>
 
           <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-center justify-center lg:flex">
-            <NavigationMenu className="pointer-events-auto">
-              <NavigationMenuList className="gap-1">
-                {/* {menuGroups.map((group) => (
-                  <NavigationMenuItem key={group.title}>
-                    <NavigationMenuTrigger className="h-11 rounded-full bg-transparent px-4 text-sm font-semibold text-foreground/80 hover:bg-accent/40 hover:text-foreground focus:bg-accent/40">
-                      {group.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="w-175 rounded-[1.75rem] border border-border/60 bg-background/95 p-4 shadow-2xl shadow-black/5">
-                        <div className="grid gap-4 md:grid-cols-[240px_minmax(0,1fr)]">
-                          <div className="rounded-3xl border border-border/60 bg-[radial-gradient(circle_at_top,rgba(0,110,114,0.12),transparent_62%)] p-5">
-                            <Badge
-                              variant="outline"
-                              className="border-mai-500/20 bg-mai-500/8 text-mai-700 dark:text-mai-300"
-                            >
-                              {group.eyebrow}
-                            </Badge>
-                            <h3 className="mt-4 text-lg font-semibold text-foreground">
-                              {group.title}
-                            </h3>
-                            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                              {group.description}
-                            </p>
-                            <HeaderLink
-                              href={group.ctaHref}
-                              trackAsCta
-                              trackingLabel={group.ctaLabel}
-                              className="mt-5 inline-flex items-center text-sm font-semibold text-mai-600 transition-colors hover:text-mai-700 dark:text-mai-300"
-                            >
-                              {group.ctaLabel}
-                              <ChevronRight className="ml-1 h-4 w-4" />
-                            </HeaderLink>
-                          </div>
-
-                          <div className="grid gap-3 sm:grid-cols-2">
-                            {group.items.map((item) => (
-                              <NavigationMenuLink asChild key={item.title}>
-                                <Link
-                                  href={item.href}
-                                  className="group rounded-[1.35rem] border border-border/60 bg-background/70 p-4 transition-all hover:border-mai-500/30 hover:bg-accent/40"
-                                >
-                                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-mai-500/10 text-mai-600 dark:text-mai-300">
-                                    <item.icon className="h-5 w-5" />
-                                  </div>
-                                  <div className="flex items-center justify-between gap-3">
-                                    <span className="font-semibold text-foreground">
-                                      {item.title}
-                                    </span>
-                                    <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-mai-500" />
-                                  </div>
-                                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                                    {item.description}
-                                  </p>
-                                </Link>
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ))} */}
-
-                {/* {primaryLinks.map((item) => (
-                  <NavigationMenuItem key={item.title}>
-                    <HeaderLink
-                      href={item.href}
-                      trackAsCta
-                      trackingLabel={item.title}
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        "h-11 rounded-full bg-transparent px-4 text-sm font-semibold text-foreground/80 hover:bg-accent/40 hover:text-foreground focus:bg-accent/40",
-                      )}
-                    >
-                      {item.title}
-                    </HeaderLink>
-                  </NavigationMenuItem>
-                ))} */}
-              </NavigationMenuList>
-            </NavigationMenu>
+           
           </div>
 
           <div className="hidden items-center gap-2 lg:flex">
