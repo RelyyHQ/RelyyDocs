@@ -1,0 +1,44 @@
+---
+title: Glossary
+---
+
+# Glossary
+
+## Who this is for
+
+Anyone who wants plain-language definitions for RelyyCast terms.
+
+## Prerequisites
+
+- None.
+
+## Steps
+
+1. Use this page as a quick reference while following setup or troubleshooting guides.
+
+## Terms
+
+- `Runtime`: The managed background services lifecycle in RelyyCast (`starting`, `running`, `stopping`, `error`).
+- `Relay`: MediaMTX path and stream forwarding state.
+- `Input URL`: Source audio URL that FFmpeg ingests.
+- `Relay Path`: URL path segment used by MediaMTX for HLS output.
+- `MP3 Output`: Toggle that enables or disables MP3 stream output.
+- `Temp URL`: Temporary Cloudflare URL using `trycloudflare.com`.
+- `Custom Domain`: Cloudflare mode using your own DNS hostname.
+- `Tunnel Name`: Cloudflare tunnel identifier used in named mode.
+- `Hostname`: Public DNS name for your stream (example: `radio.example.com`).
+- `Listeners`: Number of currently connected MP3 clients.
+- `READY`: Cloudflare status indicating tunnel setup completed and URL is active.
+
+## What success looks like
+
+- You can quickly decode app labels and status terms while following docs.
+
+## Common mistakes
+
+- Confusing relay readiness with Cloudflare readiness.
+- Assuming `READY` always means DNS has fully propagated globally.
+
+## Next recommended action
+
+1. Continue to [Support](/relyycast/08-support).

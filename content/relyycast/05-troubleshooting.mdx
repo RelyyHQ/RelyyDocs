@@ -1,0 +1,54 @@
+---
+title: Troubleshooting
+---
+
+# Troubleshooting
+
+## Who this is for
+
+Users diagnosing stream startup, playback, or Cloudflare connection issues.
+
+## Prerequisites
+
+- Access to the app `Control` and `Settings` tabs.
+
+## Steps
+
+1. Check `Runtime`, `Cloudflare`, and `Relay` tiles first.
+2. Confirm ports are free if services fail:
+   - `8177` for MP3 helper
+   - `8888` and `9997` for MediaMTX
+   - `1935` for RTMP ingest
+3. Confirm your `Input URL` is live and reachable.
+4. If Cloudflare is stuck:
+   - Run connect flow again.
+   - Complete browser login.
+   - Click retry.
+5. If MP3 works locally but public URL fails, verify your Cloudflare service target is `HTTP -> localhost:8177`.
+
+## Quick status interpretation
+
+- `Runtime: STARTING` means services are still launching.
+- `Runtime: RUNNING` means core services are healthy.
+- `Runtime: ERROR` means one or more services failed.
+- `Cloudflare: PENDING-CONSENT` means waiting for user action.
+- `Cloudflare: LOGIN-REQUIRED` means browser authentication is required.
+- `Cloudflare: READY` means public URL should be active.
+- `Relay: Ready` means active ingest is feeding MediaMTX.
+- `Relay: Pending` means relay is up but no active source yet.
+
+## What success looks like
+
+- Runtime stabilizes at `RUNNING`.
+- Stream URLs open consistently.
+- Cloudflare transitions to `READY` when enabled.
+
+## Common mistakes
+
+- Trying to diagnose before startup completes.
+- Forgetting that temp Cloudflare URLs change on reconnect.
+- Using stale Hostname or Tunnel Name values after reconfiguration.
+
+## Next recommended action
+
+1. Continue to [FAQ](/relyycast/06-faq).

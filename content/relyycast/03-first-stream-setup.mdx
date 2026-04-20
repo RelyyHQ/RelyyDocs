@@ -1,0 +1,60 @@
+---
+title: First Stream Setup
+---
+
+# First Stream Setup
+
+## Who this is for
+
+Creators setting up their first working MP3/HLS stream and optional Cloudflare public link.
+
+## Prerequisites
+
+- RelyyCast installed.
+- FFmpeg and MediaMTX installed.
+- Optional: cloudflared installed if you want a public URL.
+
+## Steps
+
+1. Open `Settings` and confirm these fields:
+   - `Input URL`
+   - `Station Name`
+   - `Bitrate`
+   - `Relay Path`
+   - `Genre`
+   - `Description`
+   - `MP3 Output` toggle
+2. Set an accessible source in `Input URL`.
+3. Click `Save Settings`.
+4. Switch to `Control` and wait for runtime status to reach `RUNNING`.
+5. Test local stream outputs:
+   - MP3: `http://127.0.0.1:8177/live.mp3`
+   - HLS: `http://127.0.0.1:8888/live/index.m3u8`
+6. Optional Cloudflare setup:
+   - Temp URL mode: click `Start Temp URL`.
+   - Custom Domain mode: enter `Hostname` and `Tunnel Name`, then click `Save & Connect`.
+7. If browser auth is requested, complete Cloudflare login and return to the app.
+
+## Cloudflare quick path
+
+1. Add your domain in Cloudflare.
+2. Create a `cloudflared` tunnel in Zero Trust.
+3. Add a public hostname that points to `HTTP -> localhost:8177`.
+4. Use those values in RelyyCast `Custom Domain` mode.
+
+## What success looks like
+
+- Runtime tile shows `RUNNING`.
+- Relay shows `Ready`.
+- You can play local MP3 or HLS output.
+- Cloudflare status reaches `READY` if enabled.
+
+## Common mistakes
+
+- Setting a Hostname without creating the matching Cloudflare tunnel route.
+- Pointing Cloudflare to HTTPS instead of `HTTP -> localhost:8177`.
+- Forgetting to save settings before connect.
+
+## Next recommended action
+
+1. Continue to [UI Tour](/relyycast/04-ui-tour).
