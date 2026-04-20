@@ -14,7 +14,7 @@ const footer = <RelyyDocsFooter />
 function getScopedPageMap(rootPageMap, route) {
   let scoped = rootPageMap
   const segments = route.split('/').filter(Boolean)
-
+ 
   for (const segment of segments) {
     const folder = scoped.find(
       item => item && 'name' in item && 'children' in item && item.name === segment
