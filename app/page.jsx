@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 
 const RELYY_APP_URL = (process.env.NEXT_PUBLIC_RELYY_APP_URL || 'https://relyy.app').replace(/\/$/, '')

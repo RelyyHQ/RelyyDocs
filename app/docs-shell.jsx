@@ -1,14 +1,7 @@
+"use client"
 import Link from 'next/link'
 import { Footer, Navbar } from 'nextra-theme-docs'
-
-const RELYY_APP_URL = (process.env.NEXT_PUBLIC_RELYY_APP_URL || 'https://relyy.app').replace(/\/$/, '')
-const SITE_LOGO = process.env.NEXT_PUBLIC_SITE_LOGO || '/relyy-app-icon.png'
-
-export const DOCS_REPOSITORY_BASE = process.env.NEXT_PUBLIC_DOCS_REPO_BASE || 'https://github.com/rherndo6/relyydocs/tree/main'
-
-function appUrl(path) {
-  return `${RELYY_APP_URL}${path}`
-}
+import { SITE_LOGO, appUrl } from './docs-config'
 
 function RelyyBrand({ sectionLabel }) {
   return (

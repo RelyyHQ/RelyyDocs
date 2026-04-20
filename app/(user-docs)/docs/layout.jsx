@@ -1,7 +1,8 @@
 import { Layout } from 'nextra-theme-docs'
 import { Banner } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-import { DOCS_REPOSITORY_BASE, RelyyDocsFooter, RelyyDocsNavbar } from '../../docs-shell'
+import { DOCS_REPOSITORY_BASE } from '../../docs-config'
+import { RelyyDocsFooter, RelyyDocsNavbar } from '../../docs-shell'
 
 const banner = <Banner storageKey="user-docs-banner" dismissible={false}>User Documentation</Banner>
 

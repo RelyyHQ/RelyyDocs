@@ -1,6 +1,8 @@
+
 import './globals.css'
 import 'nextra-theme-docs/style.css'
 import Script from 'next/script'
+import { Suspense } from 'react'
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.relyy.app'
@@ -46,6 +48,23 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="antialiased">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function () {
+              try {
+                var storedTheme = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var isDark = storedTheme === 'dark' || (storedTheme !== 'light' && prefersDark);
+                var root = document.documentElement;
+
+                root.classList.toggle('dark', isDark);
+                root.style.colorScheme = isDark ? 'dark' : 'light';
+              } catch (error) {
+                // Ignore theme boot errors so first paint still succeeds.
+              }
+            })();
+          `}
+        </Script>
         {GTM_ID ? (
           <>
             <Script id="gtm-consent-default" strategy="beforeInteractive">
@@ -79,7 +98,9 @@ export default function RootLayout({ children }) {
             </noscript>
           </>
         ) : null}
+        <Suspense>
         {children}
+        </Suspense>
       </body>
     </html>
   )
