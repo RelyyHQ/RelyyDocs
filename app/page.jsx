@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-
+import Navigation from '../components/Header'
 const RELYY_APP_URL = (process.env.NEXT_PUBLIC_RELYY_APP_URL || 'https://relyy.app').replace(/\/$/, '')
 
 const docSections = [
@@ -27,8 +27,9 @@ const docSections = [
 export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,110,114,0.16),transparent_52%),linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] dark:bg-[radial-gradient(circle_at_top,rgba(0,110,114,0.28),transparent_56%),linear-gradient(180deg,rgba(0,0,0,0.98)_0%,rgba(10,15,26,0.98)_100%)]" />
 
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,110,114,0.16),transparent_52%),linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] dark:bg-[radial-gradient(circle_at_top,rgba(0,110,114,0.28),transparent_56%),linear-gradient(180deg,rgba(0,0,0,0.98)_0%,rgba(10,15,26,0.98)_100%)]" />
+<Navigation/>
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="relyy-landing-reveal mx-auto max-w-3xl text-center">
           <p className="inline-flex items-center rounded-full border border-mai-500/25 bg-mai-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-mai-700 dark:text-mai-300">
