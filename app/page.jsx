@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Navigation from '../components/Header'
+import Footer from '../components/Footer'
 import GitHubStats from '../components/github-stats'
 const RELYY_APP_URL = (process.env.NEXT_PUBLIC_RELYY_APP_URL || 'https://relyy.app').replace(/\/$/, '')
 
@@ -80,6 +81,7 @@ export default function HomePage() {
       </section>
 
       <GitHubStats repos={['relyycast']} showMembers={true} />
+      <Footer/>
     </main>
   )
 }
