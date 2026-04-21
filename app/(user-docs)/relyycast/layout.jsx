@@ -2,8 +2,7 @@ import { Banner } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import { DOCS_REPOSITORY_BASE } from '../../docs-config'
 import { RelyyDocsFooter, RelyyDocsNavbar } from '../../docs-shell'
-
-
+import GitHubStats from '../../../../components/github-stats'
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
@@ -74,6 +73,9 @@ export default async function RelyyCastDocsLayout({ children }) {
         <Suspense>
         {children}
         </Suspense>
+        <div className="mt-12 border-t border-border/40 pt-10">
+          <GitHubStats repos={['relyycast']} showMembers={false} compact={true} />
+        </div>
       </Layout>
     </div>
   )

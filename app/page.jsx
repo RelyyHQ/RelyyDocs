@@ -1,6 +1,6 @@
-'use client'
 import Link from 'next/link'
 import Navigation from '../components/Header'
+import GitHubStats from '../components/github-stats'
 const RELYY_APP_URL = (process.env.NEXT_PUBLIC_RELYY_APP_URL || 'https://relyy.app').replace(/\/$/, '')
 
 const docSections = [
@@ -78,6 +78,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <GitHubStats repos={['relyycast']} showMembers={true} />
     </main>
   )
 }
