@@ -1,8 +1,8 @@
 import { Banner } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-import { DOCS_REPOSITORY_BASE } from '../../docs-config'
-import { RelyyDocsFooter, RelyyDocsNavbar } from '../../docs-shell'
-import GitHubStats from '../../../../components/github-stats'
+import { DOCS_REPOSITORY_BASE } from '@/app/docs-config'
+import { RelyyDocsFooter, RelyyDocsNavbar } from '@/app/docs-shell'
+import GitHubStats from '@/components/github-stats'
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
@@ -16,7 +16,7 @@ const navbar = <RelyyDocsNavbar sectionLabel="RelyyCast Docs" />
 
 const footer = <RelyyDocsFooter />
 
-function getScopedPageMap(rootPageMap, route) {
+function getScopedPageMap(rootPageMap: any[], route: string) {
   let scoped = rootPageMap
   const segments = route.split('/').filter(Boolean)
  
@@ -35,7 +35,7 @@ function getScopedPageMap(rootPageMap, route) {
   return scoped
 }
 
-function sanitizePageMap(list) {
+function sanitizePageMap(list: any[]): any[] {
   if (!Array.isArray(list)) return []
 
   return list
@@ -51,7 +51,7 @@ function sanitizePageMap(list) {
     })
 }
 
-export default async function RelyyCastDocsLayout({ children }) {
+export default async function RelyyCastDocsLayout({ children }: { children: React.ReactNode }) {
   const rootPageMap = await getPageMap('/').catch(() => [])
   const scopedPageMap = getScopedPageMap(rootPageMap, '/relyycast')
   const pageMap = sanitizePageMap(scopedPageMap)

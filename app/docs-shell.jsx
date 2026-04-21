@@ -2,14 +2,18 @@
 import Link from 'next/link'
 import { Footer, Navbar } from 'nextra-theme-docs'
 import { SITE_LOGO, appUrl } from './docs-config'
+import Image from 'next/image'
 
 function RelyyBrand({ sectionLabel }) {
   return (
     <div className="flex items-center gap-3">
-      <img
+      <Image
+
         src={SITE_LOGO}
         alt="Relyy"
-        className="h-10 w-10 rounded-xl border border-border/60 bg-background/80 p-1"
+        width={40}
+        height={40}
+        className="rounded-xl border border-border/60 bg-background/80 p-1"
       />
       <div className="leading-tight">
         <div className="text-base font-semibold text-foreground">Relyy Docs</div>
